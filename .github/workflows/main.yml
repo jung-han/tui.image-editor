@@ -1,13 +1,35 @@
-on: push
-name: test
+name: Share data between jobs
+
+on: [push]
+
 jobs:
-  browserstack:
-    name: BrowserStatck
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: BrowserStack
-      uses: jung-han/actionsss@v0.1.1
-      env:
-        BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY}}
-        BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_ACCESS_KEY}}
+    makeUrl:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+            - name: make
+              run: |
+                  node createUrl.js
+            - name: save
+              uses: actions/upload-artifact@v1
+              with:
+                  name: url
+                  path: url
+            - name: Archive code coverage results
+              uses: actions/upload-artifact@v1
+              with:
+                  name: url.txt
+    passAction:
+        name: pass
+        needs: makeUrl
+        runs-on: ubuntu-latest
+        steps:
+            - name: Download result
+              uses: actions/download-artifact@v1
+              with:
+                  name: url
+            - name: pass
+              uses: jung-han/actionsss@v0.1.2
+              with:
+                  name: url
