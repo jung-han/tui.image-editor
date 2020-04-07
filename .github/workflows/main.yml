@@ -16,11 +16,11 @@ jobs:
                   value=`cat ./url.txt`
                   echo ::set-env name=URLS::$value
             - name: pass
-              uses: jung-han/actionsss@v0.1.5
+              uses: jung-han/actionsss@v0.2.0
               with:
                   global-error-log-variable: "errorLogs"
                   urls: ${{ env.URLS }}
-                  browsers: "ie8"
+                  browsers: "ie8, ie9, ie10, ie11, chrome, safari, edge, firefox"
               env:
                   BROWSERSTACK_USERNAME: ${{secrets.BROWSERSTACK_USERNAME}}
                   BROWSERSTACK_ACCESS_KEY: ${{secrets.BROWSERSTACK_ACCESS_KEY}}
