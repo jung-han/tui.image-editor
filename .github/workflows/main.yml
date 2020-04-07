@@ -29,8 +29,8 @@ jobs:
             - name: Download result
               uses: actions/download-artifact@v1
               with:
-                  name: url
+                  name: url.txt
             - name: pass
               uses: jung-han/actionsss@v0.1.2
               with:
-                  name: url
+                  name: url.txt
