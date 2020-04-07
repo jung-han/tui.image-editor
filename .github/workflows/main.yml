@@ -1,4 +1,4 @@
-name: Share data between jobs
+name: example page 404 test
 
 on: [push]
 
@@ -20,6 +20,7 @@ jobs:
               with:
                   global-error-log-variable: "errorLogs"
                   urls: ${{ env.URLS }}
+                  browsers: "ie8"
               env:
                   BROWSERSTACK_USERNAME: ${{secrets.BROWSERSTACK_USERNAME}}
                   BROWSERSTACK_ACCESS_KEY: ${{secrets.BROWSERSTACK_ACCESS_KEY}}
