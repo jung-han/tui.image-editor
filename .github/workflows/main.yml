@@ -19,7 +19,7 @@ jobs:
             - name: grap runtime error
               uses: jung-han/actionsss@master
               with:
-                  global-error-log-variable: true
+                  global-error-log-variable: 'errorLogs'
                   urls: ${{ env.URLS }}
                   browserlist: "ie10, ie11, chrome, safari, edge, firefox"
               env:
