@@ -14,8 +14,9 @@ jobs:
             - shell: bash
               run: |
                   value=`cat ./url.txt`
-                  echo ::set-env name=INPUT_URLS::$value
+                  echo ::set-env name=URLS::$value
             - name: pass
               uses: jung-han/actionsss@v0.1.4
               with:
                   global-error-log-variable: "errorLogs"
+                  urls: ${{ env.URLS }}
