@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: BrowserStack
-      uses: jung/actionsss@master
+      uses: jung-han/actionsss@master
       env:
         BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY}}
         BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_ACCESS_KEY}}
