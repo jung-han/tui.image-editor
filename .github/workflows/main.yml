@@ -16,7 +16,7 @@ jobs:
                   value=`cat ./url.txt`
                   echo ::set-env name=URLS::$value
             - name: pass
-              uses: jung-han/actionsss@v0.1.4
+              uses: jung-han/actionsss@v0.1.5
               with:
                   global-error-log-variable: "errorLogs"
                   urls: ${{ env.URLS }}
