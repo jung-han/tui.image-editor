@@ -30,10 +30,9 @@ jobs:
               uses: actions/download-artifact@v1
               with:
                   name: url
-            - name: Print url
-              shell: bash
+            - shell: bash
               run: |
-                  value=`cat ./url.txt`
+                  value=`cat url.txt`
                   echo ::set-env name=URLS::$value
             - name: pass
               uses: jung-han/actionsss@v0.1.2
