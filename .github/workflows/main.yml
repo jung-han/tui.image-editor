@@ -1,0 +1,13 @@
+on: push
+name: test
+jobs:
+  browserstack:
+    name: BrowserStatck
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: BrowserStack
+      uses: jung/actionsss@master
+      env:
+        BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY}}
+        BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_ACCESS_KEY}}
