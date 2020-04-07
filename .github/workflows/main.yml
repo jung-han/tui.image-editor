@@ -13,7 +13,7 @@ jobs:
                   node createUrl.js
             - shell: bash
               run: |
-                  value=`cat url/url.txt`
+                  value=`cat ./url.txt`
                   echo ::set-env name=INPUT_URLS::$value
             - name: pass
               uses: jung-han/actionsss@v0.1.4
