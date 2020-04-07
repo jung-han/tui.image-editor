@@ -15,7 +15,7 @@ jobs:
               uses: actions/upload-artifact@v1
               with:
                   path: ./
-                  name: url.txt
+                  name: url
                   # path: url
             # - name: Archive code coverage results
             # uses: actions/upload-artifact@v1
@@ -29,8 +29,9 @@ jobs:
             - name: Download result
               uses: actions/download-artifact@v1
               with:
-                  name: url.txt
+                  name: url
             - name: pass
               uses: jung-han/actionsss@v0.1.2
               with:
                   name: url.txt
+                  path: ./
