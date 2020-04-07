@@ -1,4 +1,4 @@
-name: example page 404 test
+name: grap runtime error
 
 on: [push]
 
@@ -6,17 +6,18 @@ jobs:
     makeUrl:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout repository
+            - name: checkout repository
               uses: actions/checkout@v2
-            - name: make
+            - name: make url
               run: |
                   node createUrl.js
-            - shell: bash
+            - name: set url
+              shell: bash
               run: |
                   value=`cat ./url.txt`
                   echo ::set-env name=URLS::$value
-            - name: pass
-              uses: jung-han/actionsss@v0.2.1
+            - name: grap runtime error
+              uses: jung-han/actionsss@0.3.0
               with:
                   global-error-log-variable: "errorLogs"
                   urls: ${{ env.URLS }}
