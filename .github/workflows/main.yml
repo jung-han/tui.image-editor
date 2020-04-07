@@ -20,3 +20,6 @@ jobs:
               with:
                   global-error-log-variable: "errorLogs"
                   urls: ${{ env.URLS }}
+              env:
+                  BROWSERSTACK_USERNAME: ${{secret.BROWSERSTACK_USERNAME}}
+                  BROWSERSTACK_ACCESS_KEY: ${{secret.BROWSERSTACK_ACCESS_KEY}}
