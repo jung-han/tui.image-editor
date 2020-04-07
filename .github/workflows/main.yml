@@ -17,7 +17,7 @@ jobs:
                   value=`cat ./url.txt`
                   echo ::set-env name=URLS::$value
             - name: grap runtime error
-              uses: jung-han/actionsss@v0.4.0
+              uses: jung-han/actionsss@master
               with:
                   global-error-log-variable: true
                   urls: ${{ env.URLS }}
