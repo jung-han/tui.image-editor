@@ -32,7 +32,7 @@ jobs:
                   name: url
             - shell: bash
               run: |
-                  echo $PWD
+                  ls
               # value=`cat ./url.txt`
               # echo ::set-env name=URLS::$value
             # - name: pass
