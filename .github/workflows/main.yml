@@ -33,9 +33,8 @@ jobs:
             - shell: bash
               run: |
                   value=`cat url/url.txt`
-                  echo $value
-              # echo ::set-env name=URLS::$value
-            # - name: pass
-            #   uses: jung-han/actionsss@v0.1.2
-            #   with:
-            #       urls: $URLS
+                  echo ::set-env name=URLS::$value
+            - name: pass
+              uses: jung-han/actionsss@v0.1.2
+              with:
+                  urls: $URLS
