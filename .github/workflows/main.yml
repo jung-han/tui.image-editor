@@ -11,31 +11,11 @@ jobs:
             - name: make
               run: |
                   node createUrl.js
-            - name: Archive code coverage results
-              uses: actions/upload-artifact@v1
-              with:
-                  path: ./
-                  name: url
-                  # path: url
-            # - name: Archive code coverage results
-            # uses: actions/upload-artifact@v1
-            # with:
-            # name: url.txt
-    passAction:
-        name: pass
-        needs: makeUrl
-        runs-on: ubuntu-latest
-        steps:
-            - name: Download result
-              uses: actions/download-artifact@v1
-              with:
-                  name: url
             - shell: bash
-              run: |
-                  value=`cat url/url.txt`
-                  echo ::set-env name=URLS::$value
-            - name: pass
-              uses: jung-han/actionsss@v0.1.4
-              with:
-                  urls: $URLS
-                  value: $value
+                  run: |
+                      value=`cat url/url.txt`
+                      echo ::set-env name=INPUT_URLS::$value
+                - name: pass
+                  uses: jung-han/actionsss@v0.1.4
+                  with:
+                    global-error-log-variable: 'errorLogs'
