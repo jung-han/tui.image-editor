@@ -22,7 +22,7 @@ jobs:
                   echo ::set-env name=URLS::$url
             - name: detect runtime error
               if: env.ERROR_VARIABLE != false
-              uses: nhn/toast-ui.detect-runtime-error-actions@master
+              uses: jung-han/actionsss@master
               with:
                   global-error-log-variable: ${{ env.ERROR_VARIABLE }}
                   urls: ${{ env.URLS }}

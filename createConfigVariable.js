@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const config = require(path.resolve(process.cwd(), "tuidoc.config.json"));
 const examples = config.examples || {};
-const { filePath = "" } = examples;
+const { filePath, globalErrorLogVariable } = examples;
 
 /**
  * Get Examples Url
@@ -21,11 +21,16 @@ function getTestUrls() {
         return urls;
     }, []);
 
-    const result = testUrls.join(", ");
+    fs.writeFileSync("url.txt", testUrls.join(", "));
+}
 
-    fs.writeFileSync("url.txt", result);
+function getGlobalVariable() {
+    if (!globalErrorLogVariable) {
+        throw Error("not exist examples path at tuidoc.config.json");
+    }
 
-    return result;
+    fs.writeFileSync("errorVariable.txt", globalErrorLogVariable);
 }
 
 getTestUrls();
+getGlobalVariable();
