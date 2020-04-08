@@ -32,7 +32,7 @@
             "example02-useApiDirect": "2. Use api direct (basic)",
             "example03-mobile": "3. Mobile"
         },
-        "globalErrorLogVariable": "errorLogs"
+        "globalErrorLogVariable": false
     },
     "pathPrefix": "tui.image-editor"
 }
